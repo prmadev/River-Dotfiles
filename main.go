@@ -32,7 +32,7 @@ func finishingUp() {
 	}
 	riverctl(allArgs...)
 
-	cmd := exec.Command("rivertile", "-view-padding", "10", "-outer-padding", "10")
+	cmd := exec.Command("rivertile", "-view-padding", "05", "-outer-padding", "05")
 	var out bytes.Buffer
 	var stderr bytes.Buffer
 	cmd.Stdout = &out
@@ -42,7 +42,6 @@ func finishingUp() {
 		fmt.Println(fmt.Sprint(err) + ": " + stderr.String())
 		return
 	}
-
 }
 
 func setOptions() {
@@ -54,22 +53,22 @@ func setOptions() {
 		{"float-filter-add", "app-id", "Rofi"},
 		// Set app-ids and titles of views which should use client side decorations
 		// {"csd-filter-add", "tapp-id", "\"gedit\""},
-		//focus follows cursor
+		// focus follows cursor
 		{"focus-follows-cursor", "normal"},
 		// cursor wrap
 		{"set-cursor-warp", "on-output-change"},
 		// attach mode?
 		{"attach-mode", "bottom"},
-		{"input", "SynPS/2_Synaptics_TouchPad", "events","enabled"},
-		{"input", "SynPS/2_Synaptics_TouchPad", "drag","enabled"},
-		{"input", "SynPS/2_Synaptics_TouchPad", "tap","enabled"},
-		{"input", "SynPS/2_Synaptics_TouchPad", "natural-scrill","enabled"},
-		{"input", "SynPS/2_Synaptics_TouchPad", "scroll-method","two-finger"},
-		{"input", "Ideapad_extra_buttons", "events","enabled"},
-    {"input", "MIIIW_MW_Keyboard_Air_Mini", "events","enabled"},
-		{"input", "MIIIW_MW_Keyboard_Air_Mini_System_Control", "events","enabled"},
-		{"input", "MIIIW_MW_Keyboard_Air_Mini_Consumer_Control", "events","enabled"},
-		{"input", "Lid_Switch", "events","enabled"},
+		{"input", "SynPS/2_Synaptics_TouchPad", "events", "enabled"},
+		{"input", "SynPS/2_Synaptics_TouchPad", "drag", "enabled"},
+		{"input", "SynPS/2_Synaptics_TouchPad", "tap", "enabled"},
+		{"input", "SynPS/2_Synaptics_TouchPad", "natural-scrill", "enabled"},
+		{"input", "SynPS/2_Synaptics_TouchPad", "scroll-method", "two-finger"},
+		{"input", "Ideapad_extra_buttons", "events", "enabled"},
+		{"input", "MIIIW_MW_Keyboard_Air_Mini", "events", "enabled"},
+		{"input", "MIIIW_MW_Keyboard_Air_Mini_System_Control", "events", "enabled"},
+		{"input", "MIIIW_MW_Keyboard_Air_Mini_Consumer_Control", "events", "enabled"},
+		{"input", "Lid_Switch", "events", "enabled"},
 	}
 	riverctl(allArgs...)
 }
@@ -110,7 +109,6 @@ func assignToTags() {
 		{M, N, "Super+Shift", "0", "set-view-tags", allTags},
 	}
 	riverctl(allArgs...)
-
 }
 
 func mouseShortCuts() {
@@ -125,7 +123,7 @@ func keyboardShortcuts() {
 	// default apps
 	term := "kitty"
 	browser := "qutebrowser"
-	launcher := "dmenu_path | rofi -show drun | xargs swaymsg exec --"
+	launcher := "rofi -show drun"
 
 	// opening apps
 	allArgs := [][]string{
@@ -174,17 +172,17 @@ func keyboardShortcuts() {
 		{M, N, "Super", "Down", "send-layout-cmd", "rivertile", "main-location", "bottom"},
 		{M, N, "Super", "Left", "send-layout-cmd", "rivertile", "main-location", "left"},
 		// media keys
-		{M, N, "None", "XF86AudioMedia", SP, "'playerctl play-pause'"},
-		{M, N, "None", "XF86AudioPlay", SP, "'playerctl play-pause'"},
-		{M, N, "None", "XF86AudioPrev", SP, "'playerctl previous'"},
-		{M, N, "None", "XF86AudioNext", SP, "'playerctl next'"},
-		//volume keys
-		{M, N, "None", "XF86AudioRaiseVolume", SP, "'pactl set-sink-volume @DEFAULT_SINK@ +5%'"},
-		{M, N, "None", "XF86AudioLowerVolume", SP, "'pactl set-sink-volume @DEFAULT_SINK@ -5%'"},
-		{M, N, "None", "XF86AudioMute", SP, "'set-sink-mute @DEFAULT_SINK@ toggle'"},
-		//brightness keys
-		{M, N, "None", "XF86MonBrightnessUp", SP, "'light -A 5'"},
-		{M, N, "None", "XF86MonBrightnessDown", SP, "'light -U 5'"},
+		{M, N, "None", "XF86AudioMedia", SP, "\"playerctl play-pause\""},
+		{M, N, "None", "XF86AudioPlay", SP, "\"playerctl play-pause\""},
+		{M, N, "None", "XF86AudioPrev", SP, "\"playerctl previous\""},
+		{M, N, "None", "XF86AudioNext", SP, "\"playerctl next\""},
+		// volume keys
+		{M, N, "None", "XF86AudioRaiseVolume", SP, "\"pactl set-sink-volume @DEFAULT_SINK@ +5%\""},
+		{M, N, "None", "XF86AudioLowerVolume", SP, "\"pactl set-sink-volume @DEFAULT_SINK@ -5%\""},
+		{M, N, "None", "XF86AudioMute", SP, "\"set-sink-mute @DEFAULT_SINK@ toggle\""},
+		// brightness keys
+		{M, N, "None", "XF86MonBrightnessUp", SP, "\"light -A 5\""},
+		{M, N, "None", "XF86MonBrightnessDown", SP, "\"light -U 5\""},
 	}
 	riverctl(allArgs...)
 }
@@ -205,11 +203,13 @@ func riverctl(allArgs ...[]string) {
 		}
 	}
 }
+
 func autorun() {
 	exec.Command("swww", "init").Start()
 	exec.Command("swww", "img", "/home/amir/Pictures/wallpapers/city.gif").Start()
 	exec.Command("riverctl", "spawn", "cfw").Start()
 	exec.Command("riverctl", "spawn", "udiskie").Start()
-	exec.Command("dbus-update-activation-environment", "DISPLAY", "WAYLAND_DISPLAY", "XDG_SESSION_TYPE", "XDG_CURRENT_DESKTOP").Start()
+	exec.Command("dbus-update-activation-environment", "DISPLAY", "WAYLAND_DISPLAY", "XDG_SESSION_TYPE", "XDG_CURRENT_DESKTOP").
+		Start()
 	exec.Command("mako").Start()
 }
