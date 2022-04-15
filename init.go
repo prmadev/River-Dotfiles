@@ -15,60 +15,43 @@ const (
 
 func main() {
 	autorun()
+	setTheme()
+	setOptions()
 	keyboardShortcuts()
 	mouseShortCuts()
 	assignToTags()
-	setTheme()
-	setOptions()
+	inputs()
 	finishingUp()
 }
-
-func finishingUp() {
-	// Set and exec into the default layout generator, rivertile.
-	// River will send the process group of the init executable SIGTERM on exit.
+func inputs() {
 	allArgs := [][]string{
-		{SP, "waybar"},
-		{"default-layout", "rivertile"},
+		{"input", "2:7:SynPS/2_Synaptics_TouchPad", "events", "enabled"},
+		{"input", "2:7:SynPS/2_Synaptics_TouchPad", "drag", "enabled"},
+		{"input", "2:7:SynPS/2_Synaptics_TouchPad", "tap", "enabled"},
+		{"input", "2:7:SynPS/2_Synaptics_TouchPad", "natural-scroll", "enabled"},
+		{"input", "2:7:SynPS/2_Synaptics_TouchPad", "scroll-method", "two-finger"},
 	}
 	riverctl(allArgs...)
-
-	cmd := exec.Command("rivertile", "-view-padding", "05", "-outer-padding", "05")
-	var out bytes.Buffer
-	var stderr bytes.Buffer
-	cmd.Stdout = &out
-	cmd.Stderr = &stderr
-	err := cmd.Run()
-	if err != nil {
-		fmt.Println(fmt.Sprint(err) + ": " + stderr.String())
-		return
-	}
 }
-
 func setOptions() {
 	allArgs := [][]string{
 		// keyboard repeating rate
 		{"set-repeat", "50", "300"},
 		// Make certain views start floating
-		// {"float-filter-add", "app-id", "float"},
 		{"float-filter-add", "app-id", "Rofi"},
+		{"float-filter-add", "app-id", "float"},
+		{"float-filter-add", "app-id", "popup"},
+		{"float-filter-add", "app-id", "pinentry-qt"},
+		{"float-filter-add", "app-id", "pinentry-gtk"},
+		{"float-filter-add", "title", "Picture-in-Picture"},
 		// Set app-ids and titles of views which should use client side decorations
 		// {"csd-filter-add", "tapp-id", "\"gedit\""},
 		// focus follows cursor
 		{"focus-follows-cursor", "normal"},
 		// cursor wrap
 		{"set-cursor-warp", "on-output-change"},
-		// attach mode?
+		// attach mode
 		{"attach-mode", "bottom"},
-		{"input", "SynPS/2_Synaptics_TouchPad", "events", "enabled"},
-		{"input", "SynPS/2_Synaptics_TouchPad", "drag", "enabled"},
-		{"input", "SynPS/2_Synaptics_TouchPad", "tap", "enabled"},
-		{"input", "SynPS/2_Synaptics_TouchPad", "natural-scrill", "enabled"},
-		{"input", "SynPS/2_Synaptics_TouchPad", "scroll-method", "two-finger"},
-		{"input", "Ideapad_extra_buttons", "events", "enabled"},
-		{"input", "MIIIW_MW_Keyboard_Air_Mini", "events", "enabled"},
-		{"input", "MIIIW_MW_Keyboard_Air_Mini_System_Control", "events", "enabled"},
-		{"input", "MIIIW_MW_Keyboard_Air_Mini_Consumer_Control", "events", "enabled"},
-		{"input", "Lid_Switch", "events", "enabled"},
 	}
 	riverctl(allArgs...)
 }
@@ -80,7 +63,7 @@ func setTheme() {
 		{"border-color-unfocused", "0x191724"},
 		{"border-color-urgent", "0xeb6f92"},
 		{"border-width", "10"},
-		{"xcursor-theme", "'Bibata-Modern-Ice'", "24"},
+		{"xcursor-theme", "'Layan-White Cursors'", "24"},
 	}
 	riverctl(allArgs...)
 }
@@ -100,7 +83,6 @@ func assignToTags() {
 		}
 		riverctl(allArgs...)
 	}
-
 	allTags := "$(((1 << 32) - 1))"
 	allArgs := [][]string{
 		// focus all tags
@@ -124,7 +106,6 @@ func keyboardShortcuts() {
 	term := "kitty"
 	browser := "qutebrowser"
 	launcher := "rofi -show drun"
-
 	// opening apps
 	allArgs := [][]string{
 		{M, N, "Super", "Return", SP, term},
@@ -186,30 +167,80 @@ func keyboardShortcuts() {
 	}
 	riverctl(allArgs...)
 }
+func autorun() {
+	cmdList := []*exec.Cmd{
+		exec.Command("swww", "init"),
+		exec.Command("swww", "img", "/home/amir/Pictures/wallpapers/city.gif"),
+		exec.Command("cfw"),
+		exec.Command("udiskie"),
+		exec.Command(
+			"ln",
+			"-P",
+			"--force",
+			"/home/amir/.config/river/rofi/config.css",
+			"/home/amir/.config/rofi/config.rasi",
+		),
+		exec.Command(
+			"dbus-update-activation-environment",
+			"DISPLAY",
+			"WAYLAND_DISPLAY",
+			"XDG_SESSION_TYPE",
+			"XDG_CURRENT_DESKTOP",
+		),
+		exec.Command("mako"),
+	}
+	for _, cmd := range cmdList {
+		cmdStart(cmd)
+	}
+	waybarStart()
+}
+
+func waybarStart() {
+	killCmd := exec.Command("killall", "waybar")
+	cmdRun(killCmd)
+	waybarCmd := exec.Command("waybar", "-c", "/home/amir/.config/river/waybar/config.json", "-s", "/home/amir/.config/river/waybar/style.css")
+	cmdStart(waybarCmd)
+}
+
+func finishingUp() {
+	cmd := exec.Command("rivertile", "-view-padding", "05", "-outer-padding", "05")
+	cmdStart(cmd)
+	allArgs := [][]string{
+		{"default-layout", "rivertile"},
+	}
+	riverctl(allArgs...)
+}
 
 func riverctl(allArgs ...[]string) {
 	for _, args := range allArgs {
 		cmd := exec.Command("riverctl", args...)
-
-		var out bytes.Buffer
-		var stderr bytes.Buffer
-		cmd.Stdout = &out
-		cmd.Stderr = &stderr
-
-		err := cmd.Run()
-		if err != nil {
-			fmt.Println(fmt.Sprint(err) + ": " + stderr.String())
-			return
-		}
+		cmdRun(cmd)
 	}
 }
 
-func autorun() {
-	exec.Command("swww", "init").Start()
-	exec.Command("swww", "img", "/home/amir/Pictures/wallpapers/city.gif").Start()
-	exec.Command("riverctl", "spawn", "cfw").Start()
-	exec.Command("riverctl", "spawn", "udiskie").Start()
-	exec.Command("dbus-update-activation-environment", "DISPLAY", "WAYLAND_DISPLAY", "XDG_SESSION_TYPE", "XDG_CURRENT_DESKTOP").
-		Start()
-	exec.Command("mako").Start()
+func cmdRun(cmd *exec.Cmd) {
+	var out bytes.Buffer
+	var stderr bytes.Buffer
+	cmd.Stdout = &out
+	cmd.Stderr = &stderr
+
+	err := cmd.Run()
+	if err != nil {
+		fmt.Println(fmt.Sprint(err) + ": " + stderr.String() + cmd.String())
+		return
+	}
+}
+
+func cmdStart(cmd *exec.Cmd) {
+	var out bytes.Buffer
+	var stderr bytes.Buffer
+
+	cmd.Stdout = &out
+	cmd.Stderr = &stderr
+
+	err := cmd.Start()
+	if err != nil {
+		fmt.Println(fmt.Sprint(err) + ": " + stderr.String())
+		return
+	}
 }
