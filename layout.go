@@ -2,11 +2,11 @@ package main
 
 import "os/exec"
 
-func layout() {
+func Layout() {
 	cmd := exec.Command("rivertile", "-view-padding", "05", "-outer-padding", "05")
-	cmdStart(cmd)
+	CmdStart(cmd)
 	allArgs := [][]string{
 		{"default-layout", "rivertile"},
 	}
-	riverctl(allArgs...)
+	Riverctl(allArgs...)
 }

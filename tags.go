@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func makeTags() {
+func MakeTags() {
 	for i := 1; i <= 9; i++ {
 		numb := fmt.Sprint(i)
 		tag := fmt.Sprint(1 << (i - 1))
@@ -15,7 +15,7 @@ func makeTags() {
 			// toggle tag of view... I know!
 			{M, N, "Super+Shift+Control", numb, "toggle-view-tags", tag},
 		}
-		riverctl(allArgs...)
+		Riverctl(allArgs...)
 	}
 	allTags := "$(((1 << 32) - 1))"
 	allArgs := [][]string{
@@ -24,5 +24,5 @@ func makeTags() {
 		// tag focused view with all tags (show on all tags)
 		{M, N, "Super+Shift", "0", "set-view-tags", allTags},
 	}
-	riverctl(allArgs...)
+	Riverctl(allArgs...)
 }

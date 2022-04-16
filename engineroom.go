@@ -6,14 +6,14 @@ import (
 	"os/exec"
 )
 
-func riverctl(allArgs ...[]string) {
+func Riverctl(allArgs ...[]string) {
 	for _, args := range allArgs {
 		cmd := exec.Command("riverctl", args...)
-		cmdRun(cmd)
+		CmdRun(cmd)
 	}
 }
 
-func cmdRun(cmd *exec.Cmd) {
+func CmdRun(cmd *exec.Cmd) {
 	var out bytes.Buffer
 	var stderr bytes.Buffer
 	cmd.Stdout = &out
@@ -26,7 +26,7 @@ func cmdRun(cmd *exec.Cmd) {
 	}
 }
 
-func cmdStart(cmd *exec.Cmd) {
+func CmdStart(cmd *exec.Cmd) {
 	var out bytes.Buffer
 	var stderr bytes.Buffer
 

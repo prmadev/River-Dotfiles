@@ -1,6 +1,6 @@
 package main
 
-func setTheme() {
+func SetTheme() {
 	allArgs := [][]string{
 		{"background-color", "0x191724"},
 		{"border-color-focused", "0x31748f"},
@@ -9,5 +9,5 @@ func setTheme() {
 		{"border-width", "10"},
 		{"xcursor-theme", "'Layan-White Cursors'", "24"},
 	}
-	riverctl(allArgs...)
+	Riverctl(allArgs...)
 }

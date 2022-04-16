@@ -1,6 +1,6 @@
 package main
 
-func inputs() {
+func Inputs() {
 	allArgs := [][]string{
 		{"input", "2:7:SynPS/2_Synaptics_TouchPad", "events", "enabled"},
 		{"input", "2:7:SynPS/2_Synaptics_TouchPad", "drag", "enabled"},
@@ -8,5 +8,5 @@ func inputs() {
 		{"input", "2:7:SynPS/2_Synaptics_TouchPad", "natural-scroll", "enabled"},
 		{"input", "2:7:SynPS/2_Synaptics_TouchPad", "scroll-method", "two-finger"},
 	}
-	riverctl(allArgs...)
+	Riverctl(allArgs...)
 }

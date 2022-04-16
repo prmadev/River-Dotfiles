@@ -1,6 +1,6 @@
 package main
 
-func setOptions() {
+func SetOptions() {
 	allArgs := [][]string{
 		// keyboard repeating rate
 		{"set-repeat", "50", "300"},
@@ -20,5 +20,5 @@ func setOptions() {
 		// attach mode
 		{"attach-mode", "bottom"},
 	}
-	riverctl(allArgs...)
+	Riverctl(allArgs...)
 }
