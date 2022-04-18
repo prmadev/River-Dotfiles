@@ -7,15 +7,15 @@ const (
 	SP = "spawn"
 )
 
-func MouseBindings() {
+func mouseBindings() {
 	allArgs := [][]string{
 		{MP, N, "Super", "BTN_LEFT", "move-view"},
 		{MP, N, "Super", "BTN_RIGHT", "resize-view"},
 	}
-	Riverctl(allArgs...)
+	riverctl(allArgs...)
 }
 
-func KeyBindings() {
+func keyBindings() {
 	// default apps
 	term := "kitty"
 	browser := "qutebrowser"
@@ -38,11 +38,11 @@ func KeyBindings() {
 		{M, N, "Super+Shift", "Period", "send-to-output", "next"},
 		{M, N, "Super+Shift", "Comma", "send-to-output", "previous"},
 		// resize the main ratio of rivertile
-		{M, N, "Super", "H", "rivertile", "'main-ratio -0.05'"},
-		{M, N, "Super", "L", "rivertile", "'main-ratio +0.05'"},
+		{M, N, "Super", "H", SP, "/home/amir/.config/river/resize-left.sh"},
+		{M, N, "Super", "L", SP, "/home/amir/.config/river/resize-right.sh"},
 		// change the amount of views in main in rivertile
-		{M, N, "Super+Shift", "H", "rivertile", "'main-count +1'"},
-		{M, N, "Super+Shift", "L", "rivertile", "'main-count -1'"},
+		{M, N, "Super+Shift", "H", "rivertile", "'main-count", "+1'"},
+		{M, N, "Super+Shift", "L", "rivertile", "'main-count", "-1'"},
 		// move views
 		{M, N, "Super+Alt", "H", "move", "left", "100"},
 		{M, N, "Super+Alt", "J", "move", "down", "100"},
@@ -54,10 +54,10 @@ func KeyBindings() {
 		{M, N, "Super+Alt+Control", "K", "snap", "up"},
 		{M, N, "Super+Alt+Control", "L", "snap", "right"},
 		// move views
-		{M, N, "Super+Alt+Shift", "H", "resize", "horizontal", "-100"},
-		{M, N, "Super+Alt+Shift", "J", "resize", "vertical", "100"},
-		{M, N, "Super+Alt+Shift", "K", "resize", "vertical", "-100"},
-		{M, N, "Super+Alt+Shift", "L", "resize", "horizontal", "100"},
+		{M, N, "Super+Alt+Shift", "H", "resize", "'horizontal", "-100'"},
+		{M, N, "Super+Alt+Shift", "J", "resize", "'vertical", "100'"},
+		{M, N, "Super+Alt+Shift", "K", "resize", "'vertical", "-100'"},
+		{M, N, "Super+Alt+Shift", "L", "resize", "'horizontal", "100'"},
 		// toggle layouts
 		{M, N, "Super+Shift", "F", "toggle-float"},
 		{M, N, "Super", "F", "toggle-fullscreen"},
@@ -67,17 +67,19 @@ func KeyBindings() {
 		{M, N, "Super", "Down", "send-layout-cmd", "rivertile", "main-location", "bottom"},
 		{M, N, "Super", "Left", "send-layout-cmd", "rivertile", "main-location", "left"},
 		// media keys
-		{M, N, "None", "XF86AudioMedia", SP, "'playerctl play-pause'"},
-		{M, N, "None", "XF86AudioPlay", SP, "'playerctl play-pause'"},
-		{M, N, "None", "XF86AudioPrev", SP, "'playerctl previous'"},
-		{M, N, "None", "XF86AudioNext", SP, "'playerctl next'"},
+		{M, N, "None", "XF86AudioMedia", SP, "'playerctl", "play-pause'"},
+		{M, N, "None", "XF86AudioPlay", SP, "'playerctl", "play-pause'"},
+		{M, N, "None", "XF86AudioPrev", SP, "'playerctl", "previous'"},
+		{M, N, "None", "XF86AudioNext", SP, "'playerctl", "next'"},
 		// volume keys
-		{M, N, "None", "XF86AudioRaiseVolume", SP, "'pactl set-sink-volume @DEFAULT_SINK@ +5%'"},
-		{M, N, "None", "XF86AudioLowerVolume", SP, "'pactl set-sink-volume @DEFAULT_SINK@ -5%'"},
-		{M, N, "None", "XF86AudioMute", SP, "'set-sink-mute @DEFAULT_SINK@ toggle'"},
+		{M, N, "None", "XF86AudioRaiseVolume", SP, "'pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%'"},
+		{M, N, "None", "XF86AudioLowerVolume", SP, "'pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%'"},
+		{M, N, "None", "XF86AudioMute", SP, "'set-sink-mute", "@DEFAULT_SINK@", "toggle'"},
 		// brightness keys
-		{M, N, "None", "XF86MonBrightnessUp", SP, "'light -A 5'"},
-		{M, N, "None", "XF86MonBrightnessDown", SP, "'light -U 5'"},
+		{M, N, "None", "XF86MonBrightnessUp", SP, "'light", "-A", "5'"},
+		{M, N, "None", "XF86MonBrightnessDown", SP, "'light", "-U", "5'"},
 	}
-	Riverctl(allArgs...)
+
+	riverctl(allArgs...)
+
 }

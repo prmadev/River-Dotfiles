@@ -2,7 +2,7 @@ package main
 
 import "os/exec"
 
-func Autorun() {
+func autorun() {
 	cmdList := []*exec.Cmd{
 		exec.Command("swww", "init"),
 		exec.Command("swww", "img", "/home/amir/.config/river/city.gif"),
@@ -26,14 +26,14 @@ func Autorun() {
 		exec.Command("wired", "-r"),
 	}
 	for _, cmd := range cmdList {
-		CmdStart(cmd)
+		cmdStart(cmd)
 	}
-	WaybarStart()
+	waybarStart()
 }
 
-func WaybarStart() {
+func waybarStart() {
 	killCmd := exec.Command("killall", "waybar")
-	CmdRun(killCmd)
+	cmdRun(killCmd)
 	waybarCmd := exec.Command("waybar", "-c", "/home/amir/.config/river/waybar/config.json", "-s", "/home/amir/.config/river/waybar/style.css")
-	CmdStart(waybarCmd)
+	cmdStart(waybarCmd)
 }
