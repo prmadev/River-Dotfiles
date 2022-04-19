@@ -81,5 +81,4 @@ func keyBindings() {
 	}
 
 	riverctl(allArgs...)
-
 }

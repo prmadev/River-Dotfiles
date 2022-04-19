@@ -15,8 +15,10 @@ func makeTags() {
 			// toggle tag of view... I know!
 			{M, N, "Super+Shift+Control", numb, "toggle-view-tags", tag},
 		}
+
 		riverctl(allArgs...)
 	}
+
 	allTags := "$(((1 << 32) - 1))"
 	allArgs := [][]string{
 		// focus all tags
@@ -24,5 +26,6 @@ func makeTags() {
 		// tag focused view with all tags (show on all tags)
 		{M, N, "Super+Shift", "0", "set-view-tags", allTags},
 	}
+
 	riverctl(allArgs...)
 }

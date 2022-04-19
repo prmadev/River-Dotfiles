@@ -28,6 +28,7 @@ func autorun() {
 	for _, cmd := range cmdList {
 		cmdStart(cmd)
 	}
+
 	waybarStart()
 }
 
