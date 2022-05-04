@@ -11,6 +11,8 @@ func setOptions() {
 		{"float-filter-add", "app-id", "pinentry-qt"},
 		{"float-filter-add", "app-id", "pinentry-gtk"},
 		{"float-filter-add", "title", "Picture-in-Picture"},
+		{"float-filter-add", "app-id", "launcher"},
+		// for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
 		// Set app-ids and titles of views which should use client side decorations
 		// {"csd-filter-add", "tapp-id", "\"gedit\""},
 		// focus follows cursor

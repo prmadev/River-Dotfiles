@@ -14,12 +14,12 @@ func mouseBindings() {
 	}
 	riverctl(allArgs...)
 }
-
 func keyBindings() {
 	// default apps
 	term := "kitty"
 	browser := "qutebrowser"
-	launcher := "rofi -show drun"
+	// launcher := "rofi -show drun"
+	launcher := "kitty --class=launcher sway-launcher-desktop "
 	// opening apps
 	allArgs := [][]string{
 		{M, N, "Super", "Return", SP, term},

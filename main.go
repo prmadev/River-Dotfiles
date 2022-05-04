@@ -1,6 +1,7 @@
 package main
 
 // main function Everything goes through here!
+
 func main() {
 	keyBindings()
 	setTheme()

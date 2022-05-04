@@ -1,0 +1,98 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "background": "#9ccfd8",
+          "foreground": "#191724",
+          "leading_diamond": "",
+          "trailing_diamond": "",
+          "properties": {
+            "home_icon": "  ",
+            "style": "unique",
+            "mapped_locations_enabled": true,
+            "mapped_locations": {
+              "~/.config": "  ",
+              "~/Downloads": "  ",
+              "~/notes": " ﴬ ",
+              "~/Documents": "  ",
+              "~/Documents/projects": " 冷 ",
+              "~/exercism/go": " 冷 "
+            }
+          },
+          "style": "diamond",
+          "template": " {{ .Path }} ",
+          "type": "path"
+        },
+        
+        
+        {
+          "background": "#ebbcba",
+          "background_templates": [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}#FCA17D{{ end }}",
+            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#f26d50{{ end }}",
+            "{{ if gt .Ahead 0 }}#89d1dc{{ end }}",
+            "{{ if gt .Behind 0 }}#f17c37{{ end }}"
+          ],
+          "foreground": "#191724",
+          "style": "diamond",
+          "leading_diamond": "",
+          "trailing_diamond": "",
+          "properties": {
+            "fetch_status": true,
+            "branch_icon": "" 
+          },
+          "template": " {{ .HEAD }}{{ if .Staging.Changed }} \uf046  {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }} ",
+          "type": "git"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "right",
+      "segments": [
+        {
+          "background": "#86BBD8",
+          "foreground": "#FFD700",
+          "invert_powerline": true,
+          "powerline_symbol": "\ue0b2",
+          "style": "powerline",
+          "template": " \u26a1",
+          "type": "root"
+        }
+      ],
+      "type": "prompt"
+    },
+    
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "go",
+          "style": "plain",
+          "foreground": "#e0def4",
+          "background": "#31748f",
+          "template": "  \uFCD1 "
+        },
+        {
+          "style": "plain",
+          "template": " \uf0e7 ",
+          "type": "root"
+        },
+        {
+          "foreground": "#e0def4",
+          "background": "#31748f",
+          "style": "plain",
+          "template": "    ",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "final_space": true,
+  "version": 2
+}

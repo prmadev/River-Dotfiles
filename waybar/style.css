@@ -1,16 +1,16 @@
 * {
   border: none;
-  font-family: monospace;
+  font-family: "Cartograph CF";
   font-size: 15px;
   min-height: 0;
 }
 window#waybar {
   background: transparent;
-  color: #E0DEF4;
+  color: #e0def4;
 }
 #tags {
-	background-color: #191724;
-	margin: 10px 0px 0px 10px;
+  background-color: #191724;
+  margin: 10px 0px 0px 10px;
 }
 #tags button {
   padding: 5px 10px;
@@ -18,40 +18,45 @@ window#waybar {
 }
 #tags button.occupied {
   background-color: #191724;
-  color: #F6C177;
+  color: #f6c177;
   border-radius: 0px;
   font-weight: bold;
 }
 #tags button.focused {
-  color: #191724;
+  color: #e0def4;
   background-color: #31748f;
   border-radius: 0px;
-  font-weight: bold;
+  border: 1px solid #e0def4;
+  font-weight: 900;
 }
 #tags button.urgent {
   color: #191724;
   background-color: #eb6f92;
   border-radius: 0px;
 }
-#custom-date, #clock, #battery, #pulseaudio, #network {
-	background-color: #191724;
-	padding: 10px 10px;
-	margin: 10px 0px 0px 0px;
+#custom-date,
+#clock,
+#battery,
+#pulseaudio,
+#network {
+  background-color: #191724;
+  padding: 10px 10px;
+  margin: 10px 0px 0px 0px;
 }
 
 #custom-date {
-	color: #9ccfd8;
+  color: #9ccfd8;
 }
 
 #custom-power {
-	color: #191724;
-	background-color: #eb6f92;
+  color: #191724;
+  background-color: #eb6f92;
   margin: 10px 10px 10px 10px;
-	padding: 5px 10px;
+  padding: 5px 10px;
 }
 
 #clock {
-  color: #C4A7E7;
+  color: #c4a7e7;
   margin: 10px 10px 0px 0px;
 }
 
@@ -60,35 +65,35 @@ window#waybar {
 }
 
 #battery.charging {
-  color: #F6C177;
+  color: #f6c177;
 }
 
 #battery.warning:not(.charging) {
-  background-color: #EB6F92;
+  background-color: #eb6f92;
   color: #191724;
 }
 
 #network {
-	color: #ebbcba;
+  color: #ebbcba;
 }
 
 #pulseaudio {
-	color: #F6C177;
+  color: #f6c177;
 }
 
 #language {
   color: #191724;
-  background-color:#31748f;
+  background-color: #31748f;
   padding: 5px 10px;
-	margin: 10px 10px 0px 0px;
+  margin: 10px 10px 0px 0px;
 }
 #tray {
-  background:#191724;
+  background: #191724;
   padding: 5px 10px;
-	margin: 10px 10px 0px 10px;
+  margin: 10px 10px 0px 10px;
   color: #31748f;
 }
 #tray menu {
-  background:#31748f;
+  background: #31748f;
   color: #191724;
 }
