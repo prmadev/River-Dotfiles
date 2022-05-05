@@ -6,7 +6,7 @@
 </p>
 
 > Configuration of River wayland compositor in Go... because... you know!
-
+![./assets/screenshot.png]()
 ## Install
 
 ```sh

@@ -1,13 +1,11 @@
 package main
 
 import (
-	"flag"
 	"sync"
 )
 
 // main function Everything goes through here!
 func main() {
-	flag.Parse()
 	// for concurrency
 	var mwg sync.WaitGroup
 
