@@ -10,9 +10,7 @@
 
 ## Install
 
-```sh
 Don't! But if you do just build the binary into init.
-```
 
 ## Usage
 
