@@ -4,5 +4,5 @@ restart:
 	./init
 push:
 	git add .
-	git cz
+	comet
 	git push
