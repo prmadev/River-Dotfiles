@@ -1,26 +1,34 @@
 package main
 
-func setOptions() {
-	allArgs := [][]string{
+import (
+	"os/exec"
+	"sync"
+)
+
+func setOptions(mwg *sync.WaitGroup) {
+	allCMDs := []*exec.Cmd{
 		// keyboard repeating rate
-		{"set-repeat", "50", "300"},
+		exec.Command(RIVERCTL, "set-repeat", "50", "300"),
+
 		// Make certain views start floating
-		{"float-filter-add", "app-id", "Rofi"},
-		{"float-filter-add", "app-id", "float"},
-		{"float-filter-add", "app-id", "popup"},
-		{"float-filter-add", "app-id", "pinentry-qt"},
-		{"float-filter-add", "app-id", "pinentry-gtk"},
-		{"float-filter-add", "title", "Picture-in-Picture"},
-		{"float-filter-add", "app-id", "launcher"},
-		// for_window [app_id="^launcher$"] floating enable, sticky enable, resize set 30 ppt 60 ppt, border pixel 10
-		// Set app-ids and titles of views which should use client side decorations
-		// {"csd-filter-add", "tapp-id", "\"gedit\""},
-		// focus follows cursor
-		{"focus-follows-cursor", "normal"},
-		// cursor wrap
-		{"set-cursor-warp", "on-output-change"},
-		// attach mode
-		{"attach-mode", "bottom"},
+		exec.Command(RIVERCTL, "float-filter-add", "app-id", "Rofi"),
+		exec.Command(RIVERCTL, "float-filter-add", "app-id", "float"),
+		exec.Command(RIVERCTL, "float-filter-add", "app-id", "popup"),
+		exec.Command(RIVERCTL, "float-filter-add", "app-id", "pinentry-qt"),
+		exec.Command(RIVERCTL, "float-filter-add", "app-id", "pinentry-gtk"),
+		exec.Command(RIVERCTL, "float-filter-add", "title", "Picture-in-Picture"),
+		exec.Command(RIVERCTL, "float-filter-add", "app-id", "launcher"),
+
+		// mouse stuff
+		exec.Command(RIVERCTL, "focus-follows-cursor", "normal"),
+		exec.Command(RIVERCTL, "set-cursor-warp", "on-output-change"),
+
+		// layout related
+		exec.Command(RIVERCTL, "attach-mode", "bottom"),       // new window's open at the end of stack instead of on top
+		exec.Command(RIVERCTL, "default-layout", "rivertile"), // default layouting engine
 	}
-	riverctl(allArgs...)
+
+	runner(allCMDs)
+
+	mwg.Done()
 }

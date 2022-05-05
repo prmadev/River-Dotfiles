@@ -1,13 +1,39 @@
 package main
 
-func setTheme() {
-	allArgs := [][]string{
-		{"background-color", "0x191724"},
-		{"border-color-focused", "0x31748f"},
-		{"border-color-unfocused", "0x191724"},
-		{"border-color-urgent", "0xeb6f92"},
-		{"border-width", "10"},
-		{"xcursor-theme", "'Layan-White Cursors'", "24"},
+import (
+	"os/exec"
+	"sync"
+)
+
+func setTheme(mwg *sync.WaitGroup) {
+	allCMDs := []*exec.Cmd{
+		exec.Command(RIVERCTL, "background-color", "0x"+rosePine["base"]),
+		exec.Command(RIVERCTL, "border-color-focused", "0x"+rosePine["pine"]),
+		exec.Command(RIVERCTL, "border-color-unfocused", "0x"+rosePine["base"]),
+		exec.Command(RIVERCTL, "border-color-urgent", "0x"+rosePine["love"]),
+		exec.Command(RIVERCTL, "border-width", "10"),
+		exec.Command(RIVERCTL, "xcursor-theme", "'Layan-White Cursors'", "24"),
 	}
-	riverctl(allArgs...)
+
+	runner(allCMDs)
+
+	mwg.Done()
+}
+
+var rosePine = map[string]string{
+	"base":    "191724",
+	"surface": "1f1d2e",
+	"overlay": "26233a",
+	"muted":   "6e6a86",
+	"subtle":  "908caa",
+	"text":    "e0def4",
+	"love":    "eb6f92",
+	"gold":    "f6c177",
+	"rose":    "ebbcba",
+	"pine":    "31748f",
+	"foam":    "9ccfd8",
+	"iris":    "c4a7e7",
+	"hlLow":   "21202e",
+	"hlMed":   "403d52",
+	"hlHigh":  "524f67",
 }

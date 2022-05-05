@@ -1,12 +1,19 @@
 package main
 
-func inputs() {
-	allArgs := [][]string{
-		{"input", "2:7:SynPS/2_Synaptics_TouchPad", "events", "enabled"},
-		{"input", "2:7:SynPS/2_Synaptics_TouchPad", "drag", "enabled"},
-		{"input", "2:7:SynPS/2_Synaptics_TouchPad", "tap", "enabled"},
-		{"input", "2:7:SynPS/2_Synaptics_TouchPad", "natural-scroll", "enabled"},
-		{"input", "2:7:SynPS/2_Synaptics_TouchPad", "scroll-method", "two-finger"},
+import (
+	"os/exec"
+	"sync"
+)
+
+func inputs(mwg *sync.WaitGroup) {
+	allCMDs := []*exec.Cmd{
+		exec.Command(RIVERCTL, "input", "2:7:SynPS/2_Synaptics_TouchPad", "events", "enabled"),
+		exec.Command(RIVERCTL, "input", "2:7:SynPS/2_Synaptics_TouchPad", "drag", "enabled"),
+		exec.Command(RIVERCTL, "input", "2:7:SynPS/2_Synaptics_TouchPad", "tap", "enabled"),
+		exec.Command(RIVERCTL, "input", "2:7:SynPS/2_Synaptics_TouchPad", "natural-scroll", "enabled"),
+		exec.Command(RIVERCTL, "input", "2:7:SynPS/2_Synaptics_TouchPad", "scroll-method", "two-finger"),
 	}
-	riverctl(allArgs...)
+	runner(allCMDs)
+
+	mwg.Done()
 }

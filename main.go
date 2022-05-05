@@ -1,14 +1,34 @@
 package main
 
-// main function Everything goes through here!
+import (
+	"flag"
+	"sync"
+)
 
+// main function Everything goes through here!
 func main() {
-	keyBindings()
-	setTheme()
-	setOptions()
-	mouseBindings()
-	makeTags()
-	inputs()
-	autorun()
-	layout()
+	flag.Parse()
+	// for concurrency
+	var mwg sync.WaitGroup
+
+	mwg.Add(7) // if the number of gorouines under increased, this number should increase as well
+
+	// some bindinggs
+	go keyBindings(&mwg)
+	go mouseBindings(&mwg)
+
+	// coloring and stuff
+	go setTheme(&mwg)
+
+	// river's settings
+	go setOptions(&mwg)
+	go applyToTags(&mwg)
+	go inputs(&mwg)
+
+	//autorun
+	go autorun(&mwg)
+
+	// rest of concurrency stuff
+	mwg.Wait()
+
 }
