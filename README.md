@@ -10,14 +10,16 @@
 
 ## Install
 
-````sh
-Don't! But if you do just build the binary into ``init``.
+```sh
+Don't! But if you do just build the binary into init.
+```
 
 ## Usage
 
 ```sh
-Run river... that's it!
-````
+Run river
+... that's it!
+```
 
 ## Author
 
@@ -35,3 +37,4 @@ Give a ⭐️ if this project helped you!
 ---
 
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+````
