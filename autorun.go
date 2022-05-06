@@ -15,7 +15,7 @@ func autorun(mwg *sync.WaitGroup) {
 	exec.Command(
 		"killall",
 		"swaybg",
-	).Start()
+	).Run()
 
 	cmdList := []*exec.Cmd{
 		// Setting wallpaper (use 'ln -P' to an image here.)
