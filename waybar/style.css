@@ -3,10 +3,11 @@
   font-family: "Cartograph CF";
   font-size: 15px;
   min-height: 0;
+  font-style: italic;
 }
 window#waybar {
   background: transparent;
-  color: #e0def4;
+  color: #908caa;
 }
 #tags {
   background-color: #191724;
@@ -14,19 +15,21 @@ window#waybar {
 }
 #tags button {
   padding: 5px 10px;
-  /* color: #E0DEF4; */
+  color: #908caa;
+  font-weight: 300;
 }
 #tags button.occupied {
   background-color: #191724;
-  color: #f6c177;
+  color: #e0def4;
   border-radius: 0px;
+  border-bottom: 3px solid;
   font-weight: bold;
 }
 #tags button.focused {
   color: #e0def4;
   background-color: #31748f;
   border-radius: 0px;
-  border: 1px solid #e0def4;
+  border-bottom: 5px solid #e0def4;
   font-weight: 900;
 }
 #tags button.urgent {
@@ -41,6 +44,8 @@ window#waybar {
 #network {
   background-color: #191724;
   padding: 10px 10px;
+  padding-left: 15px;
+  padding-right: 15px;
   margin: 10px 0px 0px 0px;
 }
 
@@ -97,3 +102,5 @@ window#waybar {
   background: #31748f;
   color: #191724;
 }
+
+

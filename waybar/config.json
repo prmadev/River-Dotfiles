@@ -1,66 +1,66 @@
 {
-  "position": "top",
-  "height": 0,
-  "modules-left": [
-    "river/tags"
-  ],
-  "modules-right": [
-    "network",
-    "pulseaudio",
-    "battery",
-    "clock",
-    "tray"
-  ],
-  "river/tags": {
-    "num-tags": 9
-  },
-  "clock": {
-    "format": " {:%H:%M}",
-    "format-alt": "{:%Y-%m-%d}"
-  },
-  "battery": {
-    "states": {
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{icon} {capacity}%",
-    "format-charging": " {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-alt": "{time} {icon}",
-    "format-full": "  {capacity}%",
-    "format-icons": [
-      "",
-      "",
-      ""
-    ]
-  },
-  "network": {
-    "format-wifi": "  {essid}",
-    "format-ethernet": " Net",
-    "format-linked": " (No IP)",
-    "format-disconnected": " Disconnected",
-    "format-alt": "{ifname}"
-  },
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": " Muted",
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": " ",
-      "default": [
-        "",
-        "",
-        ""
-      ]
-    }
-  },
-  "tray": {
-    "show-passive-items": true,
-    "icon-size": 20,
-    "spacing": 10
-  }
+	"position": "top",
+	"height": 0,
+	"modules-left": [
+		"river/tags"
+	],
+	"modules-right": [
+		"network",
+		"pulseaudio",
+		"battery",
+		"clock",
+		"tray"
+	],
+	"river/tags": {
+		"num-tags": 9
+	},
+	"clock": {
+		"format": " {:%H:%M}",
+		"format-alt": "{:%Y-%m-%d}"
+	},
+	"battery": {
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity}%",
+		"format-charging": " {capacity}%",
+		"format-plugged": " {capacity}%",
+		"format-alt": "{time} {icon}",
+		"format-full": "  {capacity}%",
+		"format-icons": [
+			"",
+			"",
+			""
+		]
+	},
+	"network": {
+		"format-wifi": "  {essid}",
+		"format-ethernet": " Net",
+		"format-linked": " (No IP)",
+		"format-disconnected": " Disconnected",
+		"format-alt": "{ifname}"
+	},
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-muted": " Muted",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": " ",
+			"default": [
+				"",
+				"",
+				""
+			]
+		}
+	},
+	"tray": {
+		"show-passive-items": true,
+		"icon-size": 20,
+		"spacing": 10
+	}
 }
