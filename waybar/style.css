@@ -1,9 +1,9 @@
 * {
   border: none;
-  font-family: "JetbrainsMono Nerd Font";
+  font-family: "Cartograph CF";
   font-size: 15px;
   min-height: 0;
-  /* font-style: ; */
+  font-style: Italic;
 }
 window#waybar {
   background: transparent;
