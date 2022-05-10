@@ -34,6 +34,7 @@ func keyBindings(mwg *sync.WaitGroup) {
 
 	// List of Keybinings
 	allCMDs := []*exec.Cmd{
+		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "R", SPAWN, "/home/amir/.config/river/init"),
 		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "Return", SPAWN, term),
 		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "W", SPAWN, browser),
 		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "D", SPAWN, launcher),
