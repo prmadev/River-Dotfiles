@@ -28,7 +28,7 @@ func mouseBindings(mwg *sync.WaitGroup) {
 // keyBindings function ﳑ setting bindings for keyboard
 func keyBindings(mwg *sync.WaitGroup) {
 	// Default Apps
-	term := "Wezterm"
+	term := "wezterm"
 	browser := "qutebrowser"
 	launcher := "rofi -show drun"
 
