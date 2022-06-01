@@ -1,6 +1,6 @@
 configuration {
   modi: "drun";
-  font: "monospace bold 10";
+  font: "Recursive Heavy 10";
   display-drun: "";
 }
 

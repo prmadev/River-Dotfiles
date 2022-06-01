@@ -1,6 +1,7 @@
 package main
 
 import (
+	"os"
 	"os/exec"
 	"sync"
 )
@@ -12,6 +13,8 @@ const (
 	SPAWN    = "spawn"
 	RIVERCTL = "riverctl"
 )
+
+var config, _ = os.UserConfigDir()
 
 // mouseBindings function ﳑ Bindings for mouse
 func mouseBindings(mwg *sync.WaitGroup) {
@@ -28,13 +31,14 @@ func mouseBindings(mwg *sync.WaitGroup) {
 // keyBindings function ﳑ setting bindings for keyboard
 func keyBindings(mwg *sync.WaitGroup) {
 	// Default Apps
-	term := "wezterm"
+	term := "kitty"
 	browser := "qutebrowser"
-	launcher := "rofi -show drun"
+	// launcher := "rofi -show drun"
+	launcher := "onagre"
 
 	// List of Keybinings
 	allCMDs := []*exec.Cmd{
-		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "R", SPAWN, "/home/amir/.config/river/init"),
+		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "R", SPAWN, config+"/river/init"),
 		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "Return", SPAWN, term),
 		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "W", SPAWN, browser),
 		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "D", SPAWN, launcher),

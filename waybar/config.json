@@ -4,10 +4,12 @@
 	"modules-left": [
 		"river/tags"
 	],
+	"modules-middle": [],
 	"modules-right": [
 		"network",
 		"pulseaudio",
 		"battery",
+		"custom/joljol",
 		"clock",
 		"tray"
 	],
@@ -15,19 +17,19 @@
 		"num-tags": 9
 	},
 	"clock": {
-		"format": " {:%H:%M}",
-		"format-alt": "{:%Y-%m-%d}"
+		"format": "  {:%H:%M}",
+		"format-alt": "  {:%Y-%m-%d}"
 	},
 	"battery": {
 		"states": {
 			"warning": 30,
 			"critical": 15
 		},
-		"format": "{icon} {capacity}%",
+		"format": "{icon}   {capacity}%",
 		"format-charging": " {capacity}%",
-		"format-plugged": " {capacity}%",
+		"format-plugged": "  {capacity}%",
 		"format-alt": "{time} {icon}",
-		"format-full": "  {capacity}%",
+		"format-full": "   {capacity}%",
 		"format-icons": [
 			"",
 			"",
@@ -35,14 +37,14 @@
 		]
 	},
 	"network": {
-		"format-wifi": "  {essid}",
-		"format-ethernet": " Net",
-		"format-linked": " (No IP)",
-		"format-disconnected": " Disconnected",
+		"format-wifi": "   {essid}",
+		"format-ethernet": "  Net",
+		"format-linked": "  (No IP)",
+		"format-disconnected": "  Disconnected",
 		"format-alt": "{ifname}"
 	},
 	"pulseaudio": {
-		"format": "{icon} {volume}%",
+		"format": "{icon}  {volume}%",
 		"format-muted": " Muted",
 		"format-icons": {
 			"headphone": "",
@@ -62,5 +64,10 @@
 		"show-passive-items": true,
 		"icon-size": 20,
 		"spacing": 10
+	},
+	"custom/joljol": {
+		"exec": "joljol",
+		"format": "  {}",
+		"update-interval": 1000
 	}
 }

@@ -19,6 +19,8 @@ func setOptions(mwg *sync.WaitGroup) {
 		exec.Command(RIVERCTL, "float-filter-add", "title", "Picture-in-Picture"),
 		exec.Command(RIVERCTL, "float-filter-add", "app-id", "launcher"),
 
+		exec.Command(RIVERCTL, "csd-filter-add", "app-id", "Rofi"),
+		exec.Command(RIVERCTL, "csd-filter-add", "app-id", "launcher"),
 		// mouse stuff
 		exec.Command(RIVERCTL, "focus-follows-cursor", "normal"),
 		exec.Command(RIVERCTL, "set-cursor-warp", "on-output-change"),
