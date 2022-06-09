@@ -16,6 +16,11 @@ window#waybar {
 	margin: 10px 0px 0px 10px;
 	border-radius: 0px;
 }
+/* #tags:hover() { */
+/* 	background-color: transparent; */
+/* 	margin: 10px 0px 0px 10px; */
+/* 	border-radius: 0px; */
+/* } */
 #tags button {
 	padding: 5px 10px;
 	margin-right: 10px;

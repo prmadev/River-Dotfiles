@@ -17,14 +17,11 @@ func runner(allCMDs []*exec.Cmd) {
 }
 
 func cmdRun(cmd *exec.Cmd, wg *sync.WaitGroup) {
-
 	cmd.Run()
-
 	wg.Done()
 }
 
 func cmdStart(cmd *exec.Cmd, swg *sync.WaitGroup) {
 	cmd.Start()
-
 	swg.Done()
 }

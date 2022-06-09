@@ -12,6 +12,7 @@ func autorun(mwg *sync.WaitGroup) {
 		"killall",
 		"waybar",
 	).Run()
+
 	exec.Command(
 		"killall",
 		"swaybg",

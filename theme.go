@@ -12,7 +12,7 @@ func setTheme(mwg *sync.WaitGroup) {
 		exec.Command(RIVERCTL, "border-color-unfocused", "0x"+rosePine["base"]),
 		exec.Command(RIVERCTL, "border-color-urgent", "0x"+rosePine["love"]),
 		exec.Command(RIVERCTL, "border-width", "10"),
-		exec.Command(RIVERCTL, "xcursor-theme", "'Layan-White Cursors'", "24"),
+		exec.Command(RIVERCTL, "xcursor-theme", "'cutefish-light'", "24"),
 	}
 
 	runner(allCMDs)
