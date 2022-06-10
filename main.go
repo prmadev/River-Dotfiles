@@ -7,7 +7,7 @@ import (
 // main function Everything goes through here!
 func main() {
 	// for concurrency
-	var mwg sync.WaitGroup 
+	var mwg sync.WaitGroup
 	mwg.Add(7) // if the number of gorouines under increased, this number should increase as well
 
 	// some bindinggs
