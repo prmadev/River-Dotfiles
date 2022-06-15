@@ -125,7 +125,7 @@ func keyBindings(mwg *sync.WaitGroup) {
 			SPAWN,
 			"pactl set-sink-volume @DEFAULT_SINK@ -5%",
 		),
-		exec.Command(RIVERCTL, MAP, NORMAL, "None", "XF86AudioMute", SPAWN, "set-sink-mute @DEFAULT_SINK@ toggle"),
+		exec.Command(RIVERCTL, MAP, NORMAL, "None", "XF86AudioMute", SPAWN, "pactl set-sink-mute @DEFAULT_SINK@ toggle"),
 
 		// brightness keys
 		exec.Command(RIVERCTL, MAP, NORMAL, "None", "XF86MonBrightnessUp", SPAWN, "brightnessctl s 5+"),
