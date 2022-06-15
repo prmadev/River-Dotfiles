@@ -35,7 +35,7 @@ window#waybar {
 #tags button.occupied {
 	/* background:  #b0c8b0; */
 	background: linear-gradient(transparent 50%, #b0c8b0 50%, #b0c8b0 85%,transparent 85%);
-	/* border-left: 5px solid #b0c8b0; */
+	/* border-left: 10px solid #b0c8b0; */
 	border-radius: 0px;
 	font-weight: 900;
 	border-bottom: 0px solid #b0c8b0;
@@ -44,9 +44,9 @@ window#waybar {
 
 #tags button.focused {
 	/* background: #D8A838; */
-	background: linear-gradient(transparent 50%, #D8A838 50%, #D8A838 85%,transparent 85%);
+	background: linear-gradient(transparent 50%, #b0c8b0 50%, #b0c8b0 95%,transparent 95%);
 	font-weight: 900;
-	border-bottom: 5px solid #b0c8b0 ;
+	border-bottom: 8px solid #D8A838 ;
 	color: #505050;
 }
 
