@@ -6,8 +6,8 @@ configuration {
 
 @theme "/dev/null"
 * {
-  bg: #1f1d2e;
-  fg: #e0def4;
+  bg: #E0E0E0;
+  fg: #505050;
   button: #31748f;
   background-color: @bg;
   text-color: @fg;

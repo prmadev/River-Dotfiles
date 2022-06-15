@@ -7,11 +7,11 @@ import (
 
 func setTheme(mwg *sync.WaitGroup) {
 	allCMDs := []*exec.Cmd{
-		exec.Command(RIVERCTL, "background-color", "0x"+rosePine["base"]),
-		exec.Command(RIVERCTL, "border-color-focused", "0x"+rosePine["pine"]),
-		exec.Command(RIVERCTL, "border-color-unfocused", "0x"+rosePine["base"]),
+		exec.Command(RIVERCTL, "background-color", "0x"+rosePine["bg"]),
+		exec.Command(RIVERCTL, "border-color-focused", "0x"+rosePine["text"]),
+		exec.Command(RIVERCTL, "border-color-unfocused", "0x"+rosePine["bg"]),
 		exec.Command(RIVERCTL, "border-color-urgent", "0x"+rosePine["love"]),
-		exec.Command(RIVERCTL, "border-width", "10"),
+		exec.Command(RIVERCTL, "border-width", "3"),
 		exec.Command(RIVERCTL, "xcursor-theme", "'cutefish-light'", "24"),
 	}
 
@@ -21,19 +21,20 @@ func setTheme(mwg *sync.WaitGroup) {
 }
 
 var rosePine = map[string]string{
-	"base":    "191724",
-	"surface": "1f1d2e",
-	"overlay": "26233a",
-	"muted":   "6e6a86",
-	"subtle":  "908caa",
-	"text":    "e0def4",
-	"love":    "eb6f92",
-	"gold":    "f6c177",
-	"rose":    "ebbcba",
-	"pine":    "31748f",
+	"bg":    "E0E0E0",
+	"surface": "E8E8E8",
+	"overlay": "F0D0D0",
+	"muted":   "585850",
+	"subtle":  "404038",
+	"text":    "505050",
+	"love":    "806060",
+	"gold":    "D8A838",
+	"rose":    "F0D0D0",
+	"pine":    "B0C8B0",
 	"foam":    "9ccfd8",
-	"iris":    "c4a7e7",
-	"hlLow":   "21202e",
-	"hlMed":   "403d52",
-	"hlHigh":  "524f67",
+	"iris":    "806060",
+	"hlLow":   "D0D8D0",
+	"hlMed":   "B0C0B0",
+	"hlHigh":  "A0A098",
 }
+

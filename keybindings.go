@@ -33,8 +33,10 @@ func keyBindings(mwg *sync.WaitGroup) {
 	// Default Apps
 	term := "kitty"
 	browser := "qutebrowser"
-	// launcher := "rofi -show drun"
-	launcher := "onagre"
+	launcher := "rofi -show drun"
+	// launcher := "onagre"
+	netman := "networkmanager_dmenu"
+	passManager:= "rofi-rbw"
 
 	// List of Keybinings
 	allCMDs := []*exec.Cmd{
@@ -42,6 +44,8 @@ func keyBindings(mwg *sync.WaitGroup) {
 		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "Return", SPAWN, term),
 		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "W", SPAWN, browser),
 		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "D", SPAWN, launcher),
+		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "N", SPAWN, netman),
+		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "P", SPAWN, passManager),
 
 		// view focus control
 		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "J", "focus-view", "next"),

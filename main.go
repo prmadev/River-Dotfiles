@@ -10,8 +10,8 @@ func main() {
 	var mwg sync.WaitGroup
 	mwg.Add(7) // if the number of gorouines under increased, this number should increase as well
 
-	// some bindinggs
 	go keyBindings(&mwg)
+	// some bindinggs
 	go mouseBindings(&mwg)
 
 	// coloring and stuff
