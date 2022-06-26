@@ -1,7 +1,7 @@
 * {
 	border: none;
-	font-family: "Recursive Sans Casual Static", "JetBrainsMonoMedium Nerd Font";
-	font-size: 15px;
+	font-family: "Recursive Sans Casual Static", "JetBrainsMono Nerd Font";
+	font-size: 12px;
 	min-height: 20px;
 	border-radius: 0px;
 }
@@ -10,49 +10,47 @@ window#waybar {
 	background: transparent;
 	border-radius: 0px;
 }
+tooltip {
+	background: #ebbcba;
+}
 
+tooltip label {
+	color: #191724;
+}
 #tags {
 	background-color: transparent;
-	margin: 10px 0px 0px 10px;
 	border-radius: 0px;
-	border : 3px dashed #505050;
-	padding: 5px
+	padding: 5px 5px 0px 5px;
 }
-/* #tags:hover() { */
-/* 	background-color: transparent; */
-/* 	margin: 10px 0px 0px 10px; */
-/* 	border-radius: 0px; */
-/* } */
+
 #tags button {
 	padding: 0px 5px;
-	margin-right: 10px;
+	margin-right: 5px;
+	margin-left: 5px;
 	color: transparent;
-	font-weight: 400;
-	/* border: 2px solid #505050; */
-	background: linear-gradient(transparent 50%, #b0c8b0 50%, #b0c8b0 70%,transparent 70%);
+	/* border: 0px solid transparent; */
+	/* border-top: 3px solid #f6c177; */
+	/* border-left: 3px solid #f6c177; */
+	/* border-bottom: 2px solid #f6c177; */
+	background: #1f1d2e;
 }
 
 #tags button.occupied {
-	/* background:  #b0c8b0; */
-	background: linear-gradient(transparent 50%, #b0c8b0 50%, #b0c8b0 85%,transparent 85%);
-	/* border-left: 10px solid #b0c8b0; */
 	border-radius: 0px;
 	font-weight: 900;
-	border-bottom: 0px solid #b0c8b0;
-	color: #505050;
+	color: #191724;
+	background: #31748f;
 }
 
 #tags button.focused {
-	/* background: #D8A838; */
-	background: linear-gradient(transparent 50%, #b0c8b0 50%, #b0c8b0 95%,transparent 95%);
 	font-weight: 900;
-	border-bottom: 8px solid #D8A838 ;
-	color: #505050;
+	color: #191724;
+	background: #ebbcba;
 }
 
 #tags button.urgent {
-	color: #505050;
-	background-color: #806060;
+	color: #e0def4;
+	background-color: #eb6f92;
 	border-radius: 0px;
 }
 
@@ -62,66 +60,147 @@ window#waybar {
 #pulseaudio,
 #network,
 #custom-joljol {
-	color: #505050;
-	background: linear-gradient(transparent 50%, #B0C8B0 50%, #B0C8B0 70%,transparent 70%);
-	padding: 10px 10px;
-	padding-left: 15px;
-	padding-right: 15px;
+	color: #e0def4;
+	background: #1f1d2e;
+	padding: 2.5px 15px;
 	margin: 10px 10px 0px 0px;
-	/* border: 2px solid #505050; */
+	font-weight: 900;
 }
 
 #clock {
-	color: #505050;
-	/* background: #B0C0B0; */
-	/* border: 2px solid #505050; */
-	margin: 10px 10px 0px 0px;
+	color: #ebbcba;
 }
 
 #custom-joljol {
-	/* background: #ebbcba; */
+	color: #ebbcba;
 	margin: 10px 10px 0px 10px;
 }
 
 #battery {
-	/* background: #31748f; */
+	background: #31748f;
+	color: #191724;
 }
 
-#battery.charging {
-	/* background: #9ccfd8; */
-}
+/* #battery.charging { */
+/* 	color: #9ccfd8; */
+/* } */
 
-#battery.warning:not(.charging) {
-	/* background: #eb6f92; */
-	font-weight: 900;
+#battery.ninty.charging {
+	background: linear-gradient(to right, #31748f 90%, #9ccfd8 90%);
 }
-
+#battery.ninty:not(.charging) {
+	background: linear-gradient(to right, #31748f 90%, #ebbcba 90%);
+}
+#battery.eighty.charging {
+	background: linear-gradient(to right, #31748f 80%, #9ccfd8 80%);
+}
+#battery.eighty:not(.charging) {
+	background: linear-gradient(to right, #31748f 80%, #ebbcba 80%);
+}
+#battery.seventy.charging {
+	background: linear-gradient(to right, #31748f 70%, #9ccfd8 70%);
+}
+#battery.seventy:not(.charging) {
+	background: linear-gradient(to right, #31748f 70%, #ebbcba 70%);
+}
+#battery.sixty.charging {
+	background: linear-gradient(to right, #31748f 60%, #9ccfd8 60%);
+}
+#battery.sixty:not(.charging) {
+	background: linear-gradient(to right, #31748f 60%, #ebbcba 60%);
+}
+#battery.fifty.charging {
+	background: linear-gradient(to right, #31748f 50%, #9ccfd8 50%);
+}
+#battery.fifty:not(.charging) {
+	background: linear-gradient(to right, #31748f 50%, #ebbcba 50%);
+}
+#battery.fourty.charging {
+	background: linear-gradient(to right, #31748f 40%, #9ccfd8 40%);
+}
+#battery.fourty:not(.charging) {
+	background: linear-gradient(to right, #31748f 40%, #ebbcba 40%);
+}
+#battery.thirty.charging {
+	background: linear-gradient(to right, #31748f 30%, #9ccfd8 30%);
+}
+#battery.thirty:not(.charging) {
+	background: linear-gradient(to right, #31748f 30%, #ebbcba 30%);
+}
+#battery.twenty.charging {
+	background: linear-gradient(to right, #31748f 20%, #9ccfd8 20%);
+}
+#battery.twenty:not(.charging) {
+	background: linear-gradient(to right, #31748f 20%, #eb6f92 20%);
+}
+#battery.ten.charging {
+	background: linear-gradient(to right, #31748f 10%, #9ccfd8 10%);
+}
+#battery.ten:not(.charging) {
+	background: linear-gradient(to right, #31748f 10%, #eb6f92 10%);
+}
+#battery.five.charging {
+	background: linear-gradient(to right, #31748f 5%, #9ccfd8 5%);
+}
+#battery.five:not(.charging) {
+	background: linear-gradient(to right, #31748f 5%, #eb6f92 5%);
+}
+#battery.three.charging {
+	background: linear-gradient(to right, #31748f 3%, #9ccfd8 3%);
+}
+#battery.three:not(.charging) {
+	background: linear-gradient(to right, #31748f 3%, #eb6f92 3%);
+}
 #network {
-	/* background: #9ccfd8; */
+	color: #31748f;
 }
 
 #pulseaudio {
-	/* background: #f6c177; */
+	background: #c4a7e7;
+	color: #191724;
+}
+#pulseaudio.ninty {
+	background: linear-gradient(to top, #c4a7e7 90%, #908caa 90%);
+}
+#pulseaudio.eighty {
+	background: linear-gradient(to top, #c4a7e7 80%, #908caa 80%);
+}
+#pulseaudio.seventy {
+	background: linear-gradient(to top, #c4a7e7 70%, #908caa 70%);
+}
+#pulseaudio.sixty {
+	background: linear-gradient(to top, #c4a7e7 60%, #908caa 60%);
+}
+#pulseaudio.fifty {
+	background: linear-gradient(to top, #c4a7e7 50%, #908caa 50%);
+}
+#pulseaudio.fourty {
+	background: linear-gradient(to top, #c4a7e7 40%, #908caa 40%);
+}
+#pulseaudio.thirty {
+	background: linear-gradient(to top, #c4a7e7 30%, #908caa 30%);
+}
+#pulseaudio.twenty {
+	background: linear-gradient(to top, #c4a7e7 20%, #908caa 20%);
+}
+#pulseaudio.ten {
+	background: linear-gradient(to top, #c4a7e7 10%, #908caa 10%);
+}
+#pulseaudio.zero {
+	background: linear-gradient(to top, #c4a7e7 0%, #908caa 00%);
 }
 #pulseaudio.muted {
-	font-weight: 900; 
+	font-weight: 900;
+	background: #eb6f92;
 }
 
-#language {
-	color: #505050;
-	/* background-color: #31748f; */
-	padding: 5px 10px;
-	margin: 10px 10px 0px 0px;
-}
 #tray {
 	/* background: #505050; */
-	padding: 5px 10px;
+	/* padding: 5px 10px; */
 	margin: 10px 10px 0px 10px;
-	color: #505050;
+	color: #e0def4;
 }
-#tray menu {
 
-	/* background: linear-gradient(transparent 50%, #B0C8B0 50%, #B0C8B0 70%,transparent 70%); */
-	/* color: linear-gradient(transparent 50%, #B0C8B0 50%, #B0C8B0 70%,transparent 70%); */
-	color: #505050;
+#tray menu {
+	color: #e0def4;
 }

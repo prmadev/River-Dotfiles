@@ -1,58 +1,85 @@
 {
+	"gtk-layer-shell": true,
 	"position": "top",
 	"height": 0,
 	"modules-left": [
+		"river/mode",
 		"river/tags"
 	],
-	"modules-middle": [],
+	"modules-center": [
+		"clock"
+	],
 	"modules-right": [
+		"tray",
 		"network",
 		"pulseaudio",
-		"battery",
-		"custom/joljol",
-		"clock",
-		"tray"
+		"battery"
 	],
 	"river/tags": {
 		"num-tags": 9
 	},
+	"river/mode": {
+		"format": "Mode: {}"
+	},
 	"clock": {
-		"format": "  {:%H:%M}",
-		"format-alt": "  {:%Y-%m-%d}"
+		"format": "{:%H:%M}",
+		"format-alt": "{:%Y-%m-%d}"
 	},
 	"battery": {
+		"interval": 60,
 		"states": {
-			"warning": 30,
-			"critical": 15
+			"hundred": 100,
+			"ninty": 90,
+			"eighty": 80,
+			"seventy": 70,
+			"sixty": 60,
+			"fifty": 50,
+			"fourty": 40,
+			"thirty": 30,
+			"twenty": 20,
+			"ten": 10,
+			"five": 5,
+			"three": 3
 		},
-		"format": "{icon}   {capacity}%",
-		"format-charging": " {capacity}%",
-		"format-plugged": "  {capacity}%",
-		"format-alt": "{time} {icon}",
-		"format-full": "   {capacity}%",
-		"format-icons": [
-			"",
-			"",
-			""
-		]
+		"format": "   {capacity}   ",
+		"format-charging": "   {capacity}   ",
+		"format-discharging": "   {capacity}   ",
+		"format-plugged": "   {capacity}   ",
+		"format-full": "   {capacity}   "
 	},
 	"network": {
-		"format-wifi": "   {essid}",
-		"format-ethernet": "  Net",
+		"format-wifi": "",
+		"format-ethernet": "ﯱ",
 		"format-linked": "  (No IP)",
-		"format-disconnected": "  Disconnected",
-		"format-alt": "{ifname}"
+		"format-disconnected": "睊",
+		"format-alt": "{bandwidthUpBytes} {bandwidthDownBits}",
+		"interval": 2
 	},
 	"pulseaudio": {
-		"format": "{icon}  {volume}%",
-		"format-muted": " Muted",
+		"states": {
+			"hundred": 100,
+			"ninty": 90,
+			"eighty": 80,
+			"seventy": 70,
+			"sixty": 60,
+			"fifty": 50,
+			"fourty": 40,
+			"thirty": 30,
+			"twenty": 20,
+			"ten": 10,
+			"zero": 0
+		},
+		"format": "{icon}",
+		"format-muted": "",
+		"on-click": "pactl set-sink-mute  alsa_output.pci-0000_00_1f.3.analog-stereo toggle",
+		"scroll-steps": 10,
 		"format-icons": {
 			"headphone": "",
 			"hands-free": "",
 			"headset": "",
 			"phone": "",
 			"portable": "",
-			"car": " ",
+			"car": "",
 			"default": [
 				"",
 				"",

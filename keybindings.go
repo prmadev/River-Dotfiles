@@ -32,11 +32,12 @@ func mouseBindings(mwg *sync.WaitGroup) {
 func keyBindings(mwg *sync.WaitGroup) {
 	// Default Apps
 	term := "kitty"
-	browser := "qutebrowser"
+	browser := "vieb --proxy-server=\"localhost:7890\""
 	launcher := "rofi -show drun"
 	// launcher := "onagre"
 	netman := "networkmanager_dmenu"
-	passManager:= "rofi-rbw"
+	passManager := "rofi-rbw"
+	clipboardManager := "clipman pick -t rofi"
 
 	// List of Keybinings
 	allCMDs := []*exec.Cmd{
@@ -46,6 +47,7 @@ func keyBindings(mwg *sync.WaitGroup) {
 		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "D", SPAWN, launcher),
 		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "N", SPAWN, netman),
 		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "P", SPAWN, passManager),
+		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "V", SPAWN, clipboardManager),
 
 		// view focus control
 		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "J", "focus-view", "next"),
