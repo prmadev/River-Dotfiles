@@ -32,7 +32,8 @@ func mouseBindings(mwg *sync.WaitGroup) {
 func keyBindings(mwg *sync.WaitGroup) {
 	// Default Apps
 	term := "kitty"
-	browser := "vieb --proxy-server=\"localhost:7890\""
+	// browser := "vieb --proxy-server=\"localhost:7890\""
+	browser := "firefox"
 	launcher := "rofi -show drun"
 	// launcher := "onagre"
 	netman := "networkmanager_dmenu"

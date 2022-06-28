@@ -7,7 +7,8 @@
 		"river/tags"
 	],
 	"modules-center": [
-		"clock"
+		"clock",
+		"custom/joljol"
 	],
 	"modules-right": [
 		"tray",
@@ -94,7 +95,7 @@
 	},
 	"custom/joljol": {
 		"exec": "joljol",
-		"format": "  {}",
-		"update-interval": 1000
+		"format": "{}",
+		"update-interval": 100
 	}
 }
