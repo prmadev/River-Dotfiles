@@ -39,7 +39,8 @@ func keyBindings(mwg *sync.WaitGroup) {
 	netman := "networkmanager_dmenu"
 	passManager := "rofi-rbw"
 	clipboardManager := "clipman pick -t rofi"
-
+	favoClipboard := "favo $(wl-paste)"
+	favoRofi := `awk '{print $1"|"$2" "$3" "$4" "$5}' ~/notes/bm.md | rofi -dmenu -display-column-separator "\|" -display-columns 2 | awk -F "|" '{print $1}' | wl-copy`
 	// List of Keybinings
 	allCMDs := []*exec.Cmd{
 		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "R", SPAWN, config+"/river/init"),
@@ -49,6 +50,8 @@ func keyBindings(mwg *sync.WaitGroup) {
 		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "N", SPAWN, netman),
 		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "P", SPAWN, passManager),
 		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "V", SPAWN, clipboardManager),
+		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "B", SPAWN, favoRofi),
+		exec.Command(RIVERCTL, MAP, NORMAL, "Super+Shift", "B", SPAWN, favoClipboard),
 
 		// view focus control
 		exec.Command(RIVERCTL, MAP, NORMAL, "Super", "J", "focus-view", "next"),
