@@ -33,7 +33,7 @@ func keyBindings(mwg *sync.WaitGroup) {
 	// Default Apps
 	term := "kitty"
 	// browser := "vieb --proxy-server=\"localhost:7890\""
-	browser := "firefox"
+	browser := "qutebrowser"
 	launcher := "rofi -show drun"
 	// launcher := "onagre"
 	netman := "networkmanager_dmenu"

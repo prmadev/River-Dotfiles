@@ -66,10 +66,10 @@ func autorun(mwg *sync.WaitGroup) {
 
 		exec.Command(
 			"waybar",
-			"-c",
-			config+"/river/waybar/config.json",
-			"-s",
-			config+"/river/waybar/style.css",
+			// "-c",
+			// config+"/river/waybar/config.json",
+			// "-s",
+			// config+"/river/waybar/style.css",
 		),
 
 		exec.Command(

@@ -8,7 +8,7 @@ import (
 func setTheme(mwg *sync.WaitGroup) {
 	allCMDs := []*exec.Cmd{
 		exec.Command(RIVERCTL, "background-color", "0x"+rosePine["base"]),
-		exec.Command(RIVERCTL, "border-color-focused", "0x"+rosePine["rose"]),
+		exec.Command(RIVERCTL, "border-color-focused", "0x"+rosePine["foam"]),
 		exec.Command(RIVERCTL, "border-color-unfocused", "0x"+rosePine["base"]),
 		exec.Command(RIVERCTL, "border-color-urgent", "0x"+rosePine["love"]),
 		exec.Command(RIVERCTL, "border-width", "5"),

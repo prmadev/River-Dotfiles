@@ -6,5 +6,5 @@ restart:
 	./init
 push:
 	git add .
-	git cz	
+	convco commit	
 	git push
