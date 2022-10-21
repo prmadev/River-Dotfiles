@@ -21,11 +21,8 @@ func autorun(mwg *sync.WaitGroup) {
 
 	cmdList := []*exec.Cmd{
 		// Setting wallpaper (use 'ln -P' to an image here.)
-		// exec.Command("swaybg", "-m", "fill", "-i", config+"/wallpaper"),
-		exec.Command("swaybg", "-c", "#"+rosePine["base"]),
-
-		// I really hate this thing. But for now I cannot replace it! :(
-		// exec.Command("tor"),
+		exec.Command("swaybg", "-m", "fill", "-i", config+"/wallpaper"),
+		// exec.Command("swaybg", "-c", "#"+ mocha["base"]),
 
 		// something I saw others did. I don't know why.
 		exec.Command(
@@ -42,9 +39,9 @@ func autorun(mwg *sync.WaitGroup) {
 			"--default-timeout",
 			"5000",
 			"--background-color",
-			"#"+rosePine["pine"],
+			"#"+SURFACE,
 			"--border-color",
-			"#"+rosePine["pine"],
+			"#"+SURFACE,
 			"--border-size",
 			"0",
 			"--font",
@@ -80,6 +77,7 @@ func autorun(mwg *sync.WaitGroup) {
 			"clipman",
 			"store",
 		),
+
 		exec.Command(
 			"wl-paste",
 			"-p",
